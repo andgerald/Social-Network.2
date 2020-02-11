@@ -1,5 +1,5 @@
-import {entrar } from './index.js';
-import {secondView}from './registro.js';
+import {entrar} from './index.js';
+import {secondView} from './registro.js';
 export function firstVista(){
     let inicio = document.getElementById('root');
     const desplegar= 
