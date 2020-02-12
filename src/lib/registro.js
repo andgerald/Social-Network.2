@@ -27,7 +27,6 @@ export function secondView (){
         console.log(nusuario)
         console.log(correoRegistry)
         console.log(claveRegistry)
+        thridView();
     });
-    
-
 }

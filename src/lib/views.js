@@ -1,5 +1,6 @@
-import {entrar} from './index.js';
-import {secondView} from './registro.js';
+import {entrar, googleRegistration} from './index.js';
+import {secondView } from './registro.js';
+import {thridView} from './muro.js'
 export function firstVista(){
     let inicio = document.getElementById('root');
     const desplegar= 
@@ -12,7 +13,9 @@ export function firstVista(){
         </div>
     </div>
     <button id='enter' class='btnStart'>Ingresar</button>
-    <button id='createAccount'class='btnStart'>Crear Cuenta</button>`
+    <button id='createAccount'class='btnStart'>Crear Cuenta</button>
+    <button id='createGoogle'class='btnStart'>Ingresa con Google</button>`
+    
     inicio.innerHTML=desplegar;
     const btnEnter = document.getElementById('enter');
     btnEnter.addEventListener('click', ()=> {
@@ -21,9 +24,15 @@ export function firstVista(){
         entrar(correo, clave);      
         console.log(clave)
         console.log(correo)
-    });
+    });    
     const btnCreateAccount=document.getElementById('createAccount');
     btnCreateAccount.addEventListener('click',()=> {
         secondView();
+    })   
+    const btnGoogle = document.getElementById('createGoogle');
+    btnGoogle.addEventListener('click',()=>{
+     console.log('yeeess')
+     googleRegistration();
+    thridView();
     })
 }
