@@ -1,3 +1,5 @@
+import {thirdView} from './muro.js'
+import { firstView } from './views.js';
 // aqui exportaras las funciones que necesites 
 export const myFunction = () => {
   // aqui tu codigo
@@ -6,6 +8,9 @@ export const myFunction = () => {
 // FUNCION PARA ENTRAR A LA PAGINA
 export const entrar = (correo , clave) =>{
   firebase.auth().signInWithEmailAndPassword(correo , clave)
+  .then(()=>{
+    window.location.hash='#/publications'
+    })
   .catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -18,7 +23,8 @@ export const entrar = (correo , clave) =>{
 export function observador () {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      console.log('okok');
+      thirdView();  
+      console.log('activooo');
       // User is signed in.
       var displayName = user.displayName;
       var email = user.email;
@@ -29,7 +35,8 @@ export function observador () {
       var providerData = user.providerData;
       // ...
     } else {
-      console.log('no');
+      window.location.hash='start'
+      console.log('inaactivo');
       // User is signed out.
       // ...
     }
@@ -42,6 +49,7 @@ export const registry = (correoRegistry, claveRegistry) => {
   firebase.auth().createUserWithEmailAndPassword( correoRegistry , claveRegistry)
   .then(function(){
     check();
+    window.location.hash='#start'
   })
   .catch(function(error) {
     // Handle Errors here.
@@ -83,4 +91,19 @@ export const googleRegistration= ()=>{
     var credential = error.credential;
     // ...
   });
+}
+
+//CERRAR SESION
+export function closeSesion (){
+  firebase.auth().signOut()
+  .then(function(){
+    console.log('saliendo');
+    window.location.hash='start';
+    firstView();
+
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+  
 }

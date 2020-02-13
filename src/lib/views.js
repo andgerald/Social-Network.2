@@ -1,8 +1,9 @@
 import {entrar, googleRegistration} from './index.js';
-import {secondView } from './registro.js';
-import {thridView} from './muro.js'
-export function firstVista(){
+import{thirdView} from './muro.js';
+export function firstView(){
+    
     let inicio = document.getElementById('root');
+    inicio.innerHTML=''
     const desplegar= 
     `<img src='img/time-service1.jpg' class='topImg'>
     <img src='img/logo-weservice.png' class='logo'>
@@ -21,18 +22,16 @@ export function firstVista(){
     btnEnter.addEventListener('click', ()=> {
         const correo=document.getElementById('email').value;
         const clave= document.getElementById('password').value;
-        entrar(correo, clave);      
+        entrar(correo, clave);    
         console.log(clave)
         console.log(correo)
     });    
     const btnCreateAccount=document.getElementById('createAccount');
     btnCreateAccount.addEventListener('click',()=> {
-        secondView();
     })   
     const btnGoogle = document.getElementById('createGoogle');
     btnGoogle.addEventListener('click',()=>{
      console.log('yeeess')
      googleRegistration();
-    thridView();
     })
 }

@@ -1,6 +1,7 @@
 import {registry} from './index.js'
 export function secondView (){
     let registro= document.getElementById('root');
+    registro.innerHTML='';
     const desplegaRegistry=`
     <div class='containerRegistry'>
         <div class 'registry'>
@@ -27,6 +28,5 @@ export function secondView (){
         console.log(nusuario)
         console.log(correoRegistry)
         console.log(claveRegistry)
-        thridView();
     });
 }
