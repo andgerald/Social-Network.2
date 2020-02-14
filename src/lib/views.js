@@ -1,5 +1,5 @@
 import {entrar, googleRegistration} from './index.js';
-import{thirdView} from './muro.js';
+import { secondView } from './registro.js';
 export function firstView(){
     
     let inicio = document.getElementById('root');
@@ -28,6 +28,8 @@ export function firstView(){
     });    
     const btnCreateAccount=document.getElementById('createAccount');
     btnCreateAccount.addEventListener('click',()=> {
+        window.location.hash='registry';
+        secondView();
     })   
     const btnGoogle = document.getElementById('createGoogle');
     btnGoogle.addEventListener('click',()=>{

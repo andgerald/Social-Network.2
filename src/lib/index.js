@@ -23,7 +23,7 @@ export const entrar = (correo , clave) =>{
 export function observador () {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      thirdView();  
+      thirdView();
       console.log('activooo');
       // User is signed in.
       var displayName = user.displayName;
@@ -49,6 +49,7 @@ export const registry = (correoRegistry, claveRegistry) => {
   firebase.auth().createUserWithEmailAndPassword( correoRegistry , claveRegistry)
   .then(function(){
     check();
+    closeSesion();
     window.location.hash='#start'
   })
   .catch(function(error) {
