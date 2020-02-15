@@ -1,5 +1,5 @@
-import {thirdView} from './muro.js'
-import { firstView } from './views.js';
+import {publicationsView} from './muro.js'
+import {loginView } from './views.js';
 // aqui exportaras las funciones que necesites 
 export const myFunction = () => {
   // aqui tu codigo
@@ -23,7 +23,7 @@ export const entrar = (correo , clave) =>{
 export function observador () {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      thirdView();
+      publicationsView();
       console.log('activooo');
       // User is signed in.
       var displayName = user.displayName;
@@ -100,7 +100,7 @@ export function closeSesion (){
   .then(function(){
     console.log('saliendo');
     window.location.hash='start';
-    firstView();
+    loginView();
 
   })
   .catch(function(error){
@@ -108,3 +108,50 @@ export function closeSesion (){
   })
   
 }
+
+//AGREGAR DATOS A FIREBASE
+var  dataBase= firebase.firestore();
+export function datoUser(name,lastName,nusuario,correoRegistry,claveRegistry) {
+  dataBase.collection("infoUser").add({
+    nameUser: name,
+    last: lastName,
+    userName: nusuario,
+    email:correoRegistry,
+    clave:claveRegistry,
+  })
+  .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+  })
+  .catch(function(error) {
+    console.error("Error adding document: ", error);
+  });
+}
+
+//POST FIREBASE
+export function savingPost(infoPost) {
+  dataBase.collection("Posteos").add({
+    correo: firebase.auth().currentUser.uid,
+    posteando:infoPost,
+  })
+  .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+  })
+  .catch(function(error) {
+    console.error("Error adding document: ", error);
+  });
+}
+
+// VER COMENTARIOS
+const verlo=document.getElementById('loquilla');
+  dataBase.collection("Posteos").onSnapshot((querySnapshot) => {
+    verlo.innerHTML='';
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data().Posteos}`);
+        verlo.innerHTML+=`
+       <tr>
+          <th>${doc.data().posteando}</th>
+           
+        </tr>`
+    });
+  });
+

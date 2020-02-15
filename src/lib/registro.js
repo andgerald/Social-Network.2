@@ -1,5 +1,5 @@
-import {registry} from './index.js'
-export function secondView (){
+import {registry, datoUser} from './index.js'
+export function registryView (){
     let registro= document.getElementById('root');
     registro.innerHTML='';
     const desplegaRegistry=`
@@ -9,7 +9,7 @@ export function secondView (){
             <p class='letter'> Apellido <input type='text' placeholder='ingresa Apellido' class='input' id='apellido'></p>
             <p class='letter'> UserName <input type='text' placeholder='nombre usuario' class='input' id='nick2'></p>
             <p class='letter'> Email <input type='text' placeholder='ingresa email' class='input' id='email2'></p>
-            <p class='letter'> Contraseña <input type='text' placeholder='ingresa contrasena' class='input' id='password2'></p>
+            <p class='letter'> Contraseña <input type='password' placeholder='ingresa contrasena' class='input' id='password2'></p>
         </div>
     </div>
     <button id='enterTheWall'class='btnStart'>Crear Cuenta</button>
@@ -22,7 +22,8 @@ export function secondView (){
         const nusuario= document.getElementById('nick2').value;
         const correoRegistry= document.getElementById('email2').value;
         const claveRegistry = document.getElementById('password2').value;
-        registry(correoRegistry, claveRegistry)
+        registry(correoRegistry, claveRegistry);
+        datoUser(name,lastName,nusuario,correoRegistry,claveRegistry)
         console.log(name)
         console.log(lastName)
         console.log(nusuario)

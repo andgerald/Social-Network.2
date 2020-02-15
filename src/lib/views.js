@@ -1,7 +1,6 @@
 import {entrar, googleRegistration} from './index.js';
-import { secondView } from './registro.js';
-export function firstView(){
-    
+import { registryView } from './registro.js';
+export function loginView(){
     let inicio = document.getElementById('root');
     inicio.innerHTML=''
     const desplegar= 
@@ -10,7 +9,7 @@ export function firstView(){
     <div class='containerStart'>
         <div class='start'>
            <p class='letter'> Email<input type='text' placeholder='ingresa email' class='input' id='email'></p>
-           <p class='letter'>Contraseña <input type='text' placeholder='igresa contraseña' class='input' id='password'></p>
+           <p class='letter'>Contraseña <input type='password' placeholder='igresa contraseña' class='input' id='password'></p>
         </div>
     </div>
     <button id='enter' class='btnStart'>Ingresar</button>
@@ -29,7 +28,7 @@ export function firstView(){
     const btnCreateAccount=document.getElementById('createAccount');
     btnCreateAccount.addEventListener('click',()=> {
         window.location.hash='registry';
-        secondView();
+        registryView();
     })   
     const btnGoogle = document.getElementById('createGoogle');
     btnGoogle.addEventListener('click',()=>{

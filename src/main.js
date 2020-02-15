@@ -2,5 +2,5 @@
 import { myFunction } from './lib/index.js'; 
 myFunction(); 
 
-import { firstView} from './lib/views.js';
-firstView();
+import { loginView} from './lib/views.js';
+loginView();
