@@ -6,8 +6,8 @@ export function publicationsView (){
     <p> WENAAAAA!! porfiiiiiiiinnn!!!</p>
     <textarea id='post' placeholder='ingresar texto'></textarea>
     <button id='toPost'>Publicar</button> 
-    <button id='chaito'>cerrar sesion</button>   `
-
+    <button id='chaito'>cerrar sesion</button>      
+    <div id='deletePost'> </div>`
     loLograste.innerHTML=alfin;
 
     const posteo=document.getElementById('toPost');
@@ -20,5 +20,4 @@ export function publicationsView (){
     close.addEventListener('click', ()=> {
         closeSesion();
     })
-
 }

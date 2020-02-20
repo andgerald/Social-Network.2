@@ -57,6 +57,7 @@ export const registry = (correoRegistry, claveRegistry) => {
     var errorCode = error.code;
     console.log(errorCode)
     var errorMessage = error.message;
+    alert('Verifica tu Email!!')
     console.log(errorMessage)
     // ...  
   });
@@ -142,16 +143,41 @@ export function savingPost(infoPost) {
 }
 
 // VER COMENTARIOS
-const verlo=document.getElementById('loquilla');
-  dataBase.collection("Posteos").onSnapshot((querySnapshot) => {
-    verlo.innerHTML='';
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().Posteos}`);
-        verlo.innerHTML+=`
-       <tr>
-          <th>${doc.data().posteando}</th>
-           
-        </tr>`
-    });
-  });
+const printPost=document.getElementById('deletePost');
+dataBase.collection("Posteos").onSnapshot((querySnapshot) => {
+  printPost.innerHTML='';
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data().posteando}`);
+    printPost.innerHTML+=`
+    <div postViews-${doc.id}>
+     ${doc.data().posteando}
+    </div>
+    <button id='delete-${doc.id}'>Eliminar</button> 
+    <button id='edit-${doc.id}'>Editar</button> 
 
+    `
+    const remove= document.getElementById(`delete-${doc.id}`)
+    remove.addEventListener('click', () => {
+      
+        chabelaPost(dataBase,doc.id);
+      
+    })
+  });
+});
+// BORRAR COMENTARIOS
+function chabelaPost (dataBase,id) {
+  dataBase.collection("Posteos").doc(id).delete().then(function() {
+    console.log("Document successfully deleted!");
+  }).catch(function(error) {
+    console.error("Error removing document: ", error);
+  });
+}
+
+
+
+  
+  
+
+
+    
+    
