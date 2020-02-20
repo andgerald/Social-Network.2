@@ -1,13 +1,17 @@
 import {closeSesion, savingPost} from './index.js';
+import { loginView } from './views.js';
 export function publicationsView (){
     let loLograste= document.getElementById('root');
     loLograste.innerHTML='';
     const alfin = `
-    <p> WENAAAAA!! porfiiiiiiiinnn!!!</p>
-    <textarea id='post' placeholder='ingresar texto'></textarea>
-    <button id='toPost'>Publicar</button> 
-    <button id='chaito'>cerrar sesion</button>      
-    <div id='deletePost'> </div>`
+    <div class='containerPost'>
+        <p> Publicaciones</p>
+        <textarea id='post' placeholder='ingresar texto'></textarea>
+        <div id='deletePost'> </div>
+        <button class='btn'  id='toPost'>Publicar</button> 
+        <button class='btn' id='closeView'>cerrar sesion</button>   
+    </div>
+   `
     loLograste.innerHTML=alfin;
 
     const posteo=document.getElementById('toPost');
@@ -16,8 +20,9 @@ export function publicationsView (){
         savingPost(infoPost);
         document.getElementById('post').value='';
     });
-    const close = document.getElementById('chaito');
+    const close = document.getElementById('closeView');
     close.addEventListener('click', ()=> {
         closeSesion();
     })
+    
 }

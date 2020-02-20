@@ -16,6 +16,7 @@ export const entrar = (correo , clave) =>{
     var errorCode = error.code;
     console.log(errorCode)
     var errorMessage = error.message;
+    
     console.log(errorMessage)
     // ...
   });
@@ -37,6 +38,7 @@ export function observador () {
     } else {
       window.location.hash='start'
       console.log('inaactivo');
+      loginView();
       // User is signed out.
       // ...
     }
@@ -57,7 +59,7 @@ export const registry = (correoRegistry, claveRegistry) => {
     var errorCode = error.code;
     console.log(errorCode)
     var errorMessage = error.message;
-    alert('Verifica tu Email!!')
+    alert('Verifica tu mail')
     console.log(errorMessage)
     // ...  
   });
@@ -149,29 +151,53 @@ dataBase.collection("Posteos").onSnapshot((querySnapshot) => {
   querySnapshot.forEach((doc) => {
     console.log(`${doc.id} => ${doc.data().posteando}`);
     printPost.innerHTML+=`
-    <div postViews-${doc.id}>
-     ${doc.data().posteando}
-    </div>
-    <button id='delete-${doc.id}'>Eliminar</button> 
-    <button id='edit-${doc.id}'>Editar</button> 
-
+    <div class=containerPost>
+      <div class='cajas' id='postViews-${doc.id}'>
+       ${doc.data().posteando}
+      </div>
+      <button class='btn' id='delete-${doc.id}'>Eliminar</button> 
+      <button class='btn'  id='edit-${doc.id}','${doc.data().posteando}'>Editar</button>
+    </div> 
     `
-    const remove= document.getElementById(`delete-${doc.id}`)
-    remove.addEventListener('click', () => {
-      
-        chabelaPost(dataBase,doc.id);
-      
+    const remove= document.getElementById(`delete-${doc.id}`);
+    remove.addEventListener('click', () => { 
+      chabelaPost(doc.id);
+    })
+    const postEdit=document.getElementById(`edit-${doc.id}`);
+    postEdit.addEventListener('click', () => {
+      const infoPost= document.getElementById('infoPost');
+      editPost(doc.id,infoPost);
+  
     })
   });
 });
 // BORRAR COMENTARIOS
-function chabelaPost (dataBase,id) {
+function chabelaPost (id) {
   dataBase.collection("Posteos").doc(id).delete().then(function() {
     console.log("Document successfully deleted!");
+    alert('su comentario  fue eliminado')
   }).catch(function(error) {
     console.error("Error removing document: ", error);
   });
 }
+// // EDITAR POST
+// function editPost (id,infoPost){
+//   document.getElementById('infoPost').value = infoPost;
+//   var washingtonRef = db.collection("Posteos").doc(id);
+
+//   // Set the "capital" field of the city 'DC'
+//   return washingtonRef.update({
+//     correo: firebase.auth().currentUser.uid,
+//     posteando:infoPost,
+//   })
+//   .then(function() {
+//     console.log("Document successfully updated!");
+//   })
+//   .catch(function(error) {
+//     // The document probably doesn't exist.
+//     console.error("Error updating document: ", error);
+//   });
+// }
 
 
 
