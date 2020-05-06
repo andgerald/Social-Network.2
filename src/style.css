@@ -5,70 +5,80 @@ body{
     box-sizing: border-box;
 }
 .topImg{
-    width: 413px;
-    height: 210px;
+    width:100%;
+    height: 180px;
     left: 0px;
     top: 0px;
+    object-fit: cover;
+
+}
+.container-logo{
+    display: flex;
+    justify-content: center;
+    height: 140px;
 }
 .logo{
-  margin-left: 100px;
   margin-top: -40px;
 }
-.containerStart{
-    width: 329px;
-    height: 127px;
+.form {
+    text-align: center;
     background: #F2F2F2;   
-    margin-left: 40px;
+    padding: 20px;
     margin-top: -20px;
 }
-.start{
+.form-field{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.buttons{
     display: flex;
     flex-direction: column;
-}
-.letter{
-    margin-left: 10px;
-    font-family:'Sarala', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    display: flex;
     align-items: center;
-    color: #828282;   
-    justify-content: space-between;
-    margin-right: 10px;
-}
-.input{
-    display: flex;
-    float: right;
-    border: none;
-    width: 199px;
-    height: 28px;
-    background: rgba(196, 196, 196, 0.45);
 }
 .btnStart{
-    margin-left:100px;
-    width: 50%;
-    height: 55px;
+    width: 70%;
+    height: 50px;
     justify-content: center;
     font-family: 'Shadows Into Light Two', cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
+    font-size: 17px;
     color: #F2F2F2;
     cursor: pointer;
     background: #FF8000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
-.btn{
+.letter{
+    font-family:'Sarala', sans-serif;
+    color: #828282;   
+}
+.input{
+    border: none;
+    width: 199px;
+    height: 28px;
+    background: rgba(196, 196, 196, 0.45);
+}
+.form-registry{
+    text-align: center;
+    background: #F2F2F2;   
+    padding: 20px;
+    
+}
+/* DE AQUI PARA ARRIA ES INGRESAR */
+
+/* DE AQUI PARA ABAJO ES CREAR CUENTA */
+.logo-registry{
+    display: flex;
     justify-content: center;
-    font-family: 'Shadows Into Light Two', cursive;
-    font-style: normal;
-    font-weight: normal;
-    color: #F2F2F2;
-    background: #FF8000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-    margin-top: 30px;
+}
+.form-registry{
+
+}
+
+
+@media all and (max-width:1024px){
+   
 }
