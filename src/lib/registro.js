@@ -4,34 +4,34 @@ export function registryView() {
     registro.innerHTML = '';
     const desplegaRegistry = `
     <div class="logo-registry">
-        <img src='img/logo-weservice.png'>
+       <a href         window.location.hash = 'start'
+       > <img src='img/logo-weservice.png' ></a>
     </div>
     <form class='form-registry'>
-        <div form-field'>
+        <div class='form-field'>
             <label class='letter'> Nombre </label>
             <input type='text' id='nombre' class='input' placeholder='ingresa Nombre'  >
         </div>
-        <div form-field'>
+        <div class='form-field'>
             <label class='letter'> Apellido </label>
             <input type='text' id='apellido' class='input' placeholder='ingresa Apellido'  >
         </div>
-        <div form-field'>
+        <div class='form-field'>
             <label class='letter'> UserName </label>
             <input type='text' id='nick2' class='input'  placeholder='nombre usuario' >
         </div>
-        <div form-field'>
+        <div class='form-field'>
             <label class='letter'> Email </label>
             <input type='text' id='email2' class='input' placeholder='ingresa email' >
         </div>
-        <div form-field'>
+        <div class='form-field'>
             <label class='letter'> Contraseña </label>
             <input type='password' id='password2' class='input' placeholder='ingresa contrasena' >
         </div>
-        </form>
-
-        
-
-    <button id='enterTheWall'class='btnStart'>Crear Cuenta</button>
+    </form>
+    <div class="buttons">
+        <button id='enterTheWall' class='btnStart'>Crear Cuenta</button>
+    </div>
     `
     registro.innerHTML = desplegaRegistry;
     const btnEnterWall = document.getElementById('enterTheWall');

@@ -20,6 +20,7 @@ body{
 .logo{
   margin-top: -40px;
 }
+.form-registry,
 .form {
     text-align: center;
     background: #F2F2F2;   
@@ -61,12 +62,7 @@ body{
     height: 28px;
     background: rgba(196, 196, 196, 0.45);
 }
-.form-registry{
-    text-align: center;
-    background: #F2F2F2;   
-    padding: 20px;
-    
-}
+
 /* DE AQUI PARA ARRIA ES INGRESAR */
 
 /* DE AQUI PARA ABAJO ES CREAR CUENTA */
@@ -74,9 +70,7 @@ body{
     display: flex;
     justify-content: center;
 }
-.form-registry{
 
-}
 
 
 @media all and (max-width:1024px){
